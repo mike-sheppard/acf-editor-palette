@@ -48,8 +48,8 @@ trait Palette
             ]);
         }
 
-        return ! empty($color) && is_string($color) ? (
-            $colors[$color] ?? null
+        return ! empty($color) && is_string($color) && is_array($colors) ? (
+            array_key_exists($color, $colors) ? $colors[$color] : null
         ) : $colors;
     }
 
